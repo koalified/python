@@ -32,7 +32,41 @@ Koalified is built on top of a YAML base with the following symbol based rules:
 * `=` = allow validator to mutate the given data
 * `**` = a field name that represents all extra undefined keys in the input data. Can be used to include and normalize extra data than what is strictly defined. All extra data is
 
-[![koalified Example](https://raw.github.com/domaintools/koalified_python/develop/artwork/example.gif)](https://github.com/domaintools/koalified_python/blob/develop/examples/example.py)
+Using koalified
+===============
+
+Creating a schema:
+```python
+from koalified.schema import Schema
+
+schema = Schema(text="""
+name:
+    - match [A-z]
+    - str= longest=10:int cut=true:bool
+age: int minimum=18:int maximum=120:int
+contact+!:
+    phone!:
+       - phone=
+    fax:
+       - phone=""")
+```
+
+You can either pass in the YAML data directly, as shown above, or pass in an http or local disc location.
+
+When creating the schema object can specify the following instantiation arguments:
+
+* **fail_fast**: (default: `True`) if set to `True`, will fail after first requirement is not met, and raise only that exception. If set to `False`, will collect and return all encountered errors.
+* **score_fields**: (default: `False`) if set to `True`, a score will be returned for all individual fields in addition to the overall score.
+* **explain**: (default: `False`) if set to `True`, a detailed explanation behind the scoring will be returned.
+* **allow_imports**: (default: `True`) if set to `True`, the schema will be allowed to import and extend other schemas either locally or over http.
+* **precompile**: (default: `False`) if set to `True`, the schema will immediately be compiled upon instantiation of the class. If set to `False`, the schema is compiled upon it's first use.
+* **supported_types**: (default: `None`) a dictionary of type_names to callables that will cast into the given type or raise an exception. Can be used to add custom schema types.
+
+Using a schema:
+```python
+schema({'name': 'timothy', 'age': 29, 'contact': [{'fax':'1800phonenumber', 'phone': '5555555555'}]}) == \
+       {'__metadata__': {'schema_version': '4f5f88bc', 'score': 0.75}, 'age': 29, 'contact': [{'fax': '1800phonenumber', 'phone': '5555555555'}], 'name': 'timothy'}
+```
 
 
 Installing koalified
