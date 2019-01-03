@@ -62,12 +62,12 @@ except (IOError, ImportError, OSError, RuntimeError):
    readme = ''
 
 setup(name='koalified',
-      version='0.0.4',
+      version='0.0.1',
       description='For when truth is a little fuzzy.',
       long_description=readme,
-      author='Timothy Crosley',
+      author='DomainTools',
       author_email='timothy@domaintools.com',
-      url='https://github.com/domaintools/koalified',
+      url='https://github.com/domaintools/koalified_python',
       license="MIT",
       # entry_points={
       #  'console_scripts': [
@@ -87,10 +87,9 @@ setup(name='koalified',
                    'License :: OSI Approved :: MIT License',
                    'Programming Language :: Python',
                    'Programming Language :: Python :: 3',
-                   'Programming Language :: Python :: 3.2',
-                   'Programming Language :: Python :: 3.3',
-                   'Programming Language :: Python :: 3.4',
                    'Programming Language :: Python :: 3.5',
+                   'Programming Language :: Python :: 3.6',
+                   'Programming Language :: Python :: 3.7',
                    'Topic :: Software Development :: Libraries',
                    'Topic :: Utilities'],
       **PyTest.extra_kwargs)

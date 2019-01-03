@@ -1,15 +1,15 @@
-![koalified](https://raw.github.com/timothycrosley/koalified/develop/artwork/logo.png)
+![koalified](https://raw.github.com/domaintools/koalified_python/develop/artwork/logo.png)
 ===================
 
 [![PyPI version](https://badge.fury.io/py/koalified.svg)](http://badge.fury.io/py/koalified)
-[![Build Status](https://travis-ci.org/timothycrosley/koalified.svg?branch=master)](https://travis-ci.org/timothycrosley/koalified)
-[![Coverage Status](https://coveralls.io/repos/timothycrosley/koalified/badge.svg?branch=master&service=github)](https://coveralls.io/github/timothycrosley/koalified?branch=master)
+[![Build Status](https://travis-ci.org/domaintools/koalified_python.svg?branch=master)](https://travis-ci.org/timothycrosley/koalified)
+[![Coverage Status](https://coveralls.io/repos/domaintools/koalified_python/badge.svg?branch=master&service=github)](https://coveralls.io/github/timothycrosley/koalified?branch=master)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://pypi.python.org/pypi/koalified/)
-[![Join the chat at https://gitter.im/timothycrosley/koalified](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/timothycrosley/koalified?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/domaintools/koalified_python](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/timothycrosley/koalified?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 For when truth is a little fuzzy.
 
-[![koalified Example](https://raw.github.com/timothycrosley/koalified/develop/artwork/example.gif)](https://github.com/timothycrosley/koalified/blob/develop/examples/example.py)
+[![koalified Example](https://raw.github.com/domaintools/koalified_python/develop/artwork/example.gif)](https://github.com/domaintools/koalified_python/blob/develop/examples/example.py)
 
 
 Installing koalified
