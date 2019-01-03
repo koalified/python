@@ -1,0 +1,8 @@
+'@': 'https://raw.github.com/domaintools/koalified_python/develop/examples/example_schema.yaml'
+nested: '&https://raw.github.com/domaintools/koalified_python/develop/examples/example_schema.yaml'
+additional:
+    - one
+    - '&https://raw.github.com/domaintools/koalified_python/develop/examples/example_schema.yaml'
+    - name~30: str
+      location: country
+'**': str

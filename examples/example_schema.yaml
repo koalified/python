@@ -1,0 +1,9 @@
+name+:
+    - match [A-z]
+    - str= longest=4:int cut=true:bool
+age: int minimum=1:int maximum=10:int
+contact+!:
+    phone:
+       - int!=
+       - str=
+    fax: str
