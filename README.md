@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/domaintools/koalified_python.svg?branch=master)](https://travis-ci.org/domaintools/koalified_python)
 [![Coverage Status](https://coveralls.io/repos/domaintools/koalified_python/badge.svg?branch=master&service=github)](https://coveralls.io/github/domaintools/koalified_python?branch=master)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg)](https://pypi.python.org/pypi/koalified/)
-[![Join the chat at https://gitter.im/domaintools/koalified_python](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/domaintools/koalified_python?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/domaintools/koalified_python](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/koalified_python?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 For when truth is a little fuzzy.
 
