@@ -62,7 +62,7 @@ except (IOError, ImportError, OSError, RuntimeError):
    readme = ''
 
 setup(name='koalified',
-      version='0.0.1',
+      version='0.0.2',
       description='For when truth is a little fuzzy.',
       long_description=readme,
       author='DomainTools',
