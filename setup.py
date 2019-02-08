@@ -2,11 +2,10 @@
 """Defines the setup instructions for koalified"""
 import glob
 import os
-import subprocess
 import sys
 from os import path
 
-from setuptools import Extension, find_packages, setup
+from setuptools import Extension, setup
 from setuptools.command.test import test as TestCommand
 
 MYDIR = path.abspath(os.path.dirname(__file__))
@@ -56,13 +55,13 @@ class PyTest(TestCommand):
 cmdclass['test'] = PyTest
 
 try:
-   import pypandoc
-   readme = pypandoc.convert('README.md', 'rst')
+    import pypandoc
+    readme = pypandoc.convert('README.md', 'rst')
 except (IOError, ImportError, OSError, RuntimeError):
-   readme = ''
+    readme = ''
 
 setup(name='koalified',
-      version='0.0.2',
+      version='0.0.3',
       description='For when truth is a little fuzzy.',
       long_description=readme,
       author='DomainTools',
@@ -70,10 +69,10 @@ setup(name='koalified',
       url='https://github.com/domaintools/koalified_python',
       license="MIT",
       # entry_points={
-      #  'console_scripts': [
+      #   'console_scripts': [
       #      'koalified = koalified:run.terminal',
-      #  ]
-      #},
+      #   ]
+      # },
       packages=['koalified'],
       requires=[],
       install_requires=['PyYAML', 'validators', 'requests', 'xxhash', 'phonenumbers', 'pycountry', 'arrow'],

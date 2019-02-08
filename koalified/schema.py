@@ -1,5 +1,4 @@
 import yaml
-import json
 import xxhash
 import requests
 from koalified import types
@@ -51,7 +50,8 @@ class Schema(object):
             if uri.startswith('http'):
                 text = requests.get(uri).content
             else:
-                with open(uri.lstrip('file://')) as schema_file:
+                uri = uri[len('file://'):] if uri.startswith('file://') else uri
+                with open(uri) as schema_file:
                     text = schema_file.read()
 
         definition = yaml.safe_load(text)
