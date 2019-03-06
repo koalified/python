@@ -1,6 +1,6 @@
 import os
-import pytest
 
+import pytest
 from koalified.schema import Schema
 
 EXAMPLE_SCHEMA = """
@@ -20,16 +20,20 @@ def test_load_schema():
     with pytest.raises(ValueError):
         Schema()
     with pytest.raises(ValueError):
-        Schema(text=EXAMPLE_SCHEMA, uri='google.com')
+        Schema(text=EXAMPLE_SCHEMA, uri="google.com")
     schema = Schema(text=EXAMPLE_SCHEMA, precompile=True)
-    schema = Schema(uri='./examples/example_schema.yaml', precompile=True)
-    schema = Schema(uri='https://raw.github.com/domaintools/koalified_python/develop/examples/example_schema.yaml')
-    schema = Schema(text=EXAMPLE_SCHEMA, fail_fast=False, score_fields=True, explain=True, precompile=True)
-    schema = Schema(uri='./examples/example_schema2.yaml')
+    schema = Schema(uri="./examples/example_schema.yaml", precompile=True)
+    schema = Schema(
+        uri="https://raw.github.com/domaintools/koalified_python/develop/examples/example_schema.yaml"
+    )
+    schema = Schema(
+        text=EXAMPLE_SCHEMA, fail_fast=False, score_fields=True, explain=True, precompile=True
+    )
+    schema = Schema(uri="./examples/example_schema2.yaml")
 
     abspath = os.path.abspath(os.path.dirname(__file__))
-    schema = Schema(uri=abspath + '/../examples/example_schema2.yaml')
+    schema = Schema(uri=abspath + "/../examples/example_schema2.yaml")
 
     schema = Schema(text=EXAMPLE_SCHEMA)
     schema.compiled()
-    assert schema({'contact': [{'phone': '410'}]})
+    assert schema({"contact": [{"phone": "410"}]})

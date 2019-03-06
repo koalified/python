@@ -1,6 +1,6 @@
-import yaml
-import xxhash
 import requests
+import xxhash
+import yaml
 from koalified import types
 from koalified.compile import to_python
 

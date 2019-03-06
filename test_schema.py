@@ -1,5 +1,4 @@
 import pytest
-
 from koalified.schema import Schema
 
 EXAMPLE_SCHEMA = """
