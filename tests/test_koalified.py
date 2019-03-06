@@ -1,7 +1,6 @@
 """Tests the Python3 implementation of koalified"""
-import pytest
-
 import koalified
+import pytest
 
 
 def koalified():
