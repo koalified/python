@@ -6,13 +6,21 @@ from koalified.compile import to_python
 
 
 class Schema(object):
-
-    def __init__(self, uri=None, text=None, supported_types=types.built_in, fail_fast=True, allow_imports=True,
-                 score_fields=False, explain=False, precompile=False):
+    def __init__(
+        self,
+        uri=None,
+        text=None,
+        supported_types=types.built_in,
+        fail_fast=True,
+        allow_imports=True,
+        score_fields=False,
+        explain=False,
+        precompile=False,
+    ):
         self.supported_types = supported_types
         self.definition = self._load_definition(uri=uri, text=text, allow_imports=allow_imports)
-        self.metadata = self.definition.pop('__metadata__', {})
-        self.version = self.metadata['schema_version']
+        self.metadata = self.definition.pop("__metadata__", {})
+        self.version = self.metadata["schema_version"]
         self.fail_fast = fail_fast
         self.score_fields = score_fields
         self.explain = explain
@@ -29,12 +37,12 @@ class Schema(object):
                 for index, nested_value in enumerate(value):
                     if type(nested_value) == dict:
                         self._add_imports(nested_value)
-                    elif type(nested_value) == str and nested_value.startswith('&'):
+                    elif type(nested_value) == str and nested_value.startswith("&"):
                         value[index] = self._load_definition(nested_value[1:])
-            elif type(value) == str and value.startswith('&'):
+            elif type(value) == str and value.startswith("&"):
                 definition[field] = self._load_definition(value[1:])
 
-        extend = definition.pop('@', None)
+        extend = definition.pop("@", None)
         if extend:
             definition = self._load_definition(extend).update(definition)
 
@@ -47,10 +55,10 @@ class Schema(object):
             raise ValueError("You cannot specify multiple sources. Choose one: uri or text.")
 
         if uri:
-            if uri.startswith('http'):
+            if uri.startswith("http"):
                 text = requests.get(uri).content
             else:
-                uri = uri[len('file://'):] if uri.startswith('file://') else uri
+                uri = uri[len("file://") :] if uri.startswith("file://") else uri
                 with open(uri) as schema_file:
                     text = schema_file.read()
 
@@ -58,9 +66,9 @@ class Schema(object):
         if allow_imports:
             self._add_imports(definition)
 
-        metadata = definition.setdefault('__metadata__', {})
-        if not metadata.get('schema_version', None):
-            metadata['schema_version'] = xxhash.xxh32(text).hexdigest()
+        metadata = definition.setdefault("__metadata__", {})
+        if not metadata.get("schema_version", None):
+            metadata["schema_version"] = xxhash.xxh32(text).hexdigest()
 
         return definition
 
