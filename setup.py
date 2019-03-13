@@ -90,6 +90,7 @@ setup(
         "pycountry",
         "arrow",
     ],
+    extras_require={"cython": ["Cython>=0.24"]},
     cmdclass=cmdclass,
     ext_modules=ext_modules,
     keywords="Python, Python3",
