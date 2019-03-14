@@ -1,8 +1,19 @@
 language: python
 python:
-  - "3.5"
-  - "3.6"
+- '3.5'
+- '3.6'
 install:
-  - pip install tox tox-travis coveralls
+- pip install tox tox-travis coveralls
 script: tox
 after_success: coveralls
+deploy:
+  provider: pypi
+  user: timothycrosley
+  distributions: sdist bdist_wheel
+  skip_existing: true
+  on:
+    tags: false
+    branch: master
+    condition: "$TOXENV = py37"
+  password:
+    secure: jlL5eWYogiNOV91ghZb9Shprt8xAJQRxIv8bTiTUgIgdvfpYcA4nLxVy27wPH1Pe5AYLbYAriPOLFM135CArO4GhxboA8AsNyBSUdgSKhiSZo4R3BySJwPMWlYtGHw6VAydBm5hrF+7RhW0yaNGAerpMix5PEVuNqZlMJIWWneAUb21GyQVoYmz7O32K80g/XeurXH+FlL78GmRX352d+bjM3Fs5Z+jd6KqHONjPrjnShH8HyAzu2I2guB+R95Xwer3IMk6O4B2lGpqklIuVNzpX+nDMvoyUIa9gj2iZQ2nXKDRxfKnAKO2FFVkmB8/U3uMek7fnbf1kSh1CNlBKUPVpJwbiJFKZaZFlOLyDttVX30ZZIV+36omr807sPFvofdELinLCLgveluzfNn8rhy6gfJhPdsSO3v+x1MdZZxiPsmwq56UiH+dThuhruTjt41D5uYVypV12XJ1W/YLi7MT5bwzi/0WWdf2LF4Pe6ccIbKIV971j9YvvtuJgB2uD3ebKKkgqODw+jcy4w7fgZjtBqo66qOC4dNrALoGUGIdF2Uvyh+fwlM5btO2mTBwnXP9hP6Zu/swfX1c/7qSy7LZlWFcwNZH2YJvj0FruLW8TaXoudJ7MRA4UzT/qrOpTg2euufkTe38IADDzRf2qYugOXZNn1xkHTYgAt9A74O0=
