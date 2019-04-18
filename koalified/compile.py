@@ -14,8 +14,8 @@ INDENT = " " * 4
 
 
 def to_python(schema):
-    definition = copy.deepcopy(schema.definition)
-    metadata = schema.definition.pop("__metadata__", {})
+    _ = copy.deepcopy(schema.definition)
+    _ = schema.definition.pop("__metadata__", {})
     code = _compile_schema(schema)
     if Cython and hasattr(Cython, "inline"):
         name_space = schema.supported_types.copy()
@@ -254,7 +254,7 @@ def _compile_field(schema, field, validators, path):
 def _read_value(schema, value):
     if ":" in value:
         value, value_type = value.split(":")
-        if not value_type in schema.supported_types:
+        if value_type not in schema.supported_types:
             raise ValueError(
                 'provided type of "{}" not one of the support value types: {}'.format(
                     value_type, ", ".join(schema.supported_types.keys())
