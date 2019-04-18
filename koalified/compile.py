@@ -20,7 +20,7 @@ def to_python(schema):
     if Cython and hasattr(Cython, "inline"):
         name_space = schema.supported_types.copy()
         name_space["metadata"] = schema.metadata
-        name_space = Cython.inline(code, globals=name_space)
+        name_space = Cython.inline(code, globals=name_space, language_level=3)
     else:
         name_space = schema.supported_types.copy()
         name_space["metadata"] = schema.metadata
