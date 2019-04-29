@@ -1,4 +1,4 @@
-![koalified](https://raw.github.com/domaintools/koalified_python/develop/artwork/banner.png)
+![koalified](https://raw.githubusercontent.com/koalified/python/master/artwork/banner.png)
 ===================
 
 [![PyPI version](https://badge.fury.io/py/koalified.svg)](http://badge.fury.io/py/koalified)
